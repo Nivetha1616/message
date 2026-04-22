@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry 😔</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    text-align: center;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    padding: 50px 20px;
+}
+
+h1 {
+    font-size: 40px;
+    color: #d62828;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.line {
+    font-size: 20px;
+    margin: 10px 0;
+    min-height: 24px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #c9184a;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+    margin-top: 20px;
+    font-size: 22px;
+    color: #6a0572;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* hearts */
+.heart {
+    position: absolute;
+    color: rgba(255, 77, 109, 0.5);
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>I’m Really Sorry ,Kavitha😔</h1>
+
+    <div id="text"></div>
+
+    <button onclick="showMessage()">Click if you still care 💔</button>
+
+    <div id="finalMessage" class="hidden">
+        I'm Really Sorry ❤️<br>
+        I truly value our friendship.
+    </div>
+</div>
+
+<script>
+const messages = [
+"Ipo than old chat la read pannen evalo jolly ya pesirukom...",
+"ellathaiyum spoil panniten...",
+"Sorry una romba hurt pannathuku...",
+"inime disturb panna matten ithuku mela ena pannanum nu theriyala...",
+"Sorry...Sorry",
+"You are very important to me.",
+"I miss our talks and moments...",
+"I love you ❤️"
+];
+
+let index = 0;
+
+function showLines() {
+    if (index < messages.length) {
+        const container = document.getElementById("text");
+        const line = document.createElement("p");
+        line.className = "line";
+        line.innerText = messages[index];
+        container.appendChild(line);
+
+        index++;
+        setTimeout(showLines, 1500); // delay between lines
+    }
+}
+
+showLines();
+
+function showMessage() {
+    document.getElementById("finalMessage").style.display = "block";
+}
+
+/* hearts */
+function createHearts() {
+    for (let i = 0; i < 12; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+    }
+}
+createHearts();
+</script>
+
+</body>
+</html>
